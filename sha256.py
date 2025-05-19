@@ -42,18 +42,18 @@ def add_entry(password: str):
     # Append the encrypted message to the file
     with open(JOURNAL_FILE, "ab") as file:
         file.write(encrypted + b"\n")
-    print("✅ Entry saved and encrypted.")
+    print(" Entry saved and encrypted.")
 
 # Reads and decrypts all entries from the journal file
 def view_entries(password: str):
     if not os.path.exists(JOURNAL_FILE):
-        print("📭 No journal found yet.")
+        print("No journal found yet.")
         return
 
     with open(JOURNAL_FILE, "rb") as file:
         lines = file.readlines()
 
-    print("\n🔓 Decrypted Journal Entries:\n" + "-" * 30)
+    print("\Decrypted Journal Entries:\n" + "-" * 30)
     for i, line in enumerate(lines, 1):
         try:
             # Attempt to decrypt each line
@@ -61,11 +61,11 @@ def view_entries(password: str):
             print(f"{i}. {decrypted}")
         except Exception:
             # If decryption fails, likely due to wrong password
-            print(f"{i}. 🔒 Unable to decrypt entry (wrong password?)")
+            print(f"{i}. Unable to decrypt entry (wrong password?)")
 
 # Main menu loop
 def main():
-    print("🔐 Welcome to Encrypted Journal CLI")
+    print("Welcome to Encrypted Journal CLI")
     password = input("Enter your journal password: ")
 
     # Loop until the user chooses to exit
@@ -78,10 +78,10 @@ def main():
         elif choice == "2":
             view_entries(password)
         elif choice == "3":
-            print("👋 Goodbye!")
+            print(" Goodbye!")
             break
         else:
-            print("❌ Invalid choice. Please enter 1, 2, or 3.")
+            print("Invalid choice. Please enter 1, 2, or 3.")
 
 # Entry point for the program
 if __name__ == "__main__":
