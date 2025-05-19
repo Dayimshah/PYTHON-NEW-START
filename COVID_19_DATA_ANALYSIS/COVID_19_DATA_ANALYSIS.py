@@ -2,7 +2,7 @@
 import pandas as pd
 import numpy as np
 
-# 🧾 Step 1: Load the dataset
+# Load the dataset
 
 
 # We tell pandas to read the file
